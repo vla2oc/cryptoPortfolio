@@ -12,6 +12,26 @@ dist
 dist-ssr
 *.local
 
+# Python
+venv/
+.venv/            
+__pycache__/       
+*.pyc
+
+# Environment Variables (Секреты)
+.env
+.env.local
+.env.*.local
+
+# Data files
+*.csv
+data/
+processed/
+!data/.gitkeep
+!processed/.gitkeep
+
+
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
