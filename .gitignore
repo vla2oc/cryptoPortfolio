@@ -27,8 +27,8 @@ __pycache__/
 *.csv
 data/
 processed/
-!data/.gitkeep
-!processed/.gitkeep
+Agents/data/.gitkeep
+processed/.gitkeep
 
 
 
