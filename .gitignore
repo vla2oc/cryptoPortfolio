@@ -1,0 +1,48 @@
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Python
+venv/
+__pycache__/
+*.pyc
+# Data files
+*.csv
+Agents/data/
+processed/
+
+
+node_modules
+.env
+dist
+dist-ssr
+*.local
+
+# ML модели (веса FinBERT - это сотни MB)
+*.bin
+*.pt
+*.pth
+*.safetensors
+Agents/model/finbert-crypto-sentiment/tokenizer.json
+Agents/model/finbert-crypto-mlm/tokenizer.json
+Agents/finbert-crypto-mlm/checkpoint-4/tokenizer.json
+Agents/model/finbert-crypto-sentiment/vocab.txt
+Agents/model/finbert-crypto-mlm/vocab.txt
+Agents/finbert-crypto-mlm/checkpoint-4/vocab.txt
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

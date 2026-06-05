@@ -1,0 +1,45 @@
+version: "3.8"
+
+services:
+  # 2. Твой AI Агент (Python)
+  ai_service:
+    build: ./Agents
+    ports:
+      - "8000:8000"
+    # На Маке сборка FinBERT может занять время, это нормально
+    volumes:
+      - ./Agents:/app # Чтобы код обновлялся без пересборки
+
+  # 3. Твой Бэкенд (Node.js)
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    environment:
+      # Внутри Докера мы обращаемся к другим контейнерам по имени сервиса
+      - PYTHON_BASE_URL=http://ai_service:8000/api
+      - PORT=3000
+    depends_on:
+      - ai_service
+    # Чтобы работала горячая перезагрузка (если ты правишь код)
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+
+  # 4. Твой Фронтенд (React)
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173" # Если у тебя Vite, поменяй на "3000:5173" или "5173:5173"
+    environment:
+      # Для браузера бэкенд по-прежнему на localhost, так как фронт выполняется в браузере
+      - REACT_APP_API_URL=http://localhost:3000
+      # Или, если используешь Vite:
+      - VITE_API_URL=http://localhost:3000
+    depends_on:
+      - backend
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules

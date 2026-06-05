@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan&family=Monomaniac+One&family=Orbitron&family=Oswald:wght@200..700&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Roboto:ital,wght@0,300;1,300&family=Syne:wght@400..800&family=Teko&display=swap");
+@import "tailwindcss";
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: var(--bgColor);
+}
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+:root {
+  --bgColor: #030514;
+}
+@theme {
+  --font-display: "Monomaniac One", "sans-serif";
+  --font-reading: "Roboto", "sans-serif";
+  --color-backGr: #030514;
+}
